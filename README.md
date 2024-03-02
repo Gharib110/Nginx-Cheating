@@ -1,14 +1,19 @@
 # Nginx-Cheating
 Nginx Cheats !
 
+## The Base Configurations When You Install Nginx
+- Use ondrej/nginx packages or install it from source by compiling it !
+- Other configurations in Confs folder !
 ```bash
 user www-data;
-worker_processes auto;
+worker_processes auto; # Number of process that is set to auto which is based on the number of the CPUs of your server
 pid /run/nginx.pid;
 include /etc/nginx/modules-enabled/*.conf;
+load_module module/ngx_mp4_module.so; # mp4 module if you need it
+load_module module/ngx_http_image.so; # image module if you need it
 
 events {
-        worker_connections 768;
+        worker_connections 768; # The number of your Worker connections
         # multi_accept on;
 }
 
@@ -19,9 +24,9 @@ http {
         ##
 
         sendfile on;
-        tcp_nopush on;
+        tcp_nopush off;
         types_hash_max_size 2048;
-        # server_tokens off;
+        server_tokens on; # Hide the version of Nginx that you use !
 
         # server_names_hash_bucket_size 64;
         # server_name_in_redirect off;
@@ -46,8 +51,10 @@ http {
 
         ##
         # FastCgi_Cache
+
         fastcgi_cache_path /tmp/nginx_cache levels=1:2 keys_zone=MYCACHE:2048m inactive=60m;
-        fastcgi_cache_key "$scheme$request_method$request_uri";       
+        fastcgi_cache_key "$scheme$request_method$request_uri";
+      
         ##
         # Gzip Settings
         ##
