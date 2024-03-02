@@ -3,7 +3,8 @@ Nginx Cheats !
 
 ## The Base Configurations When You Install Nginx
 - Use ondrej/nginx packages or install it from source by compiling it !
-- Other configurations in Confs folder !
+- Other configurations in Confs directory !
+- Try to inspect each line of `` nginx.conf `` file to get familiar yourself with it, then take look at Confs directory
 ```bash
 user www-data;
 worker_processes auto; # Number of process that is set to auto which is based on the number of the CPUs of your server
