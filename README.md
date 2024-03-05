@@ -118,3 +118,12 @@ http {
 #       }
 #}
 ```
+
+## NGINX Amplify
+```bash
+curl -L -O https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh
+
+wget https://github.com/nginxinc/nginx-amplify-agent/raw/master/packages/install.sh
+
+API_KEY='xxxxxxx' sh ./install.sh
+```
